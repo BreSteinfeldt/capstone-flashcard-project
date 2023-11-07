@@ -5,7 +5,8 @@ import { listDecks, deleteDeck } from "../../utils/api";
 function DeckList() {
   const [decks, setDecks] = useState([]);
   const history = useHistory();
-
+  
+  //helper function 
   function loadDecks() {
     listDecks().then(setDecks);
   }
