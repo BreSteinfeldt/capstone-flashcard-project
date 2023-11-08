@@ -1,14 +1,10 @@
 import React, { useState } from "react";
 
-function DeckForm({ onSubmit, onCancel }) {
-
-  const initialState = {
-    name: "",
-    description: "",
-  };
+function DeckForm({ onSubmit, onCancel, initialState = {name:"", description:""} }) {
 
   const [deck, setDeck] = useState(initialState);
 
+  //handles form changes 
   function changeHandler({ target: { name, value } }) {
     setDeck((prevState) => ({
       ...prevState,
@@ -16,10 +12,12 @@ function DeckForm({ onSubmit, onCancel }) {
     }));
   }
 
+  //handles submission 
   function submitHandler(event) {
     event.preventDefault();
     onSubmit(deck);
   }
+  
   return (
     <div>
       <form onSubmit={submitHandler} className="deck-edit">

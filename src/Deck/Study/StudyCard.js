@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+//sets values for view 
 const nextView = {
   front: "back",
   back: "front",
@@ -9,11 +9,13 @@ function StudyCard({ card = {}, title, nextHandler }) {
   const [view, setView] = useState("front");
   const [flipped, setFlipped] = useState("false");
 
+  //handles flip logic 
   function flipHandler() {
     setView((prevState) => nextView[prevState]);
     setFlipped(true);
   }
 
+  //uesEffect sets the view and flipped state
   useEffect(() => {
     setView("front");
     setFlipped(false);

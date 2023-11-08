@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 
 function CardList({ deck, onCardDelete }) {
   const { cards = [] } = deck;
-
+  
+//maps card elements from deck 
   const list = cards.map((card) => (
     <li
       key={card.id}

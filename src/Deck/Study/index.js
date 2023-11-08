@@ -10,14 +10,18 @@ function Study(){
     const [cardNumber, setCardNumber] = useState(1); 
     const history = useHistory(); 
 
+    //useEffect hook to read and set deck 
     useEffect(()=> {
         readDeck(deckId).then(setDeck); 
     }, [deckId]); 
 
+    //tracker variables for card
     const cardCount = deck.cards.length; 
     const cardTitle = `Card ${cardNumber} of ${cardCount}`; 
     const card = deck.cards[cardNumber - 1]; 
 
+
+// handles next logic 
   function nextHandler() {
     if(cardNumber === cardCount) {
         const returnHome = window.confirm(

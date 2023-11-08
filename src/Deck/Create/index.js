@@ -6,12 +6,14 @@ import DeckForm from "../Form";
 function DeckCreate() {
     const history = useHistory(); 
 
+    //handles submit for new deck 
     function submitHandler(deck) {
         createDeck(deck).then((savedDeck)=>
         history.push(`/decks/${savedDeck.id}`)
         );
     }
 
+    //handles cancel option 
     function cancel() {
         history.goBack(); 
     }

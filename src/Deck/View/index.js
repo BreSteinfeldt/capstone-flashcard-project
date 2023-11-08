@@ -12,24 +12,27 @@ function DeckView() {
   const [deck, setDeck] = useState({ cards: [] });
   const history = useHistory();
   
-  //helper function 
+  //helper function to read and set deck  
   function loadDeck() {
     readDeck(deckId).then(setDeck);
   }
 
+  //useEffect hook to load decks and track deckId 
   useEffect(() => {
     loadDeck();
   }, [deckId]);
 
+  //handles delete window.confirm
   function deleteHandler() {
-    const confimred = window.confirm(
+    const confirmed = window.confirm(
       "Delete this deck? You will not be able to recover it."
     );
-    if (confimred) {
+    if (confirmed) {
       deleteDeck(deck.id).then(() => history.push("/decks"));
     }
   }
 
+  //handles deletion of card 
   function deleteCardHandler() {
     const confirmed = window.confirm(
       "Delete this card? You will not be able to recover it."
@@ -74,7 +77,7 @@ function DeckView() {
         <span className="oi oi-book" /> Study
       </Link>
       <Link
-        to={`/decks/${deck.id}/new`}
+        to={`/decks/${deck.id}/cards/new`}
         className="btn btn-primary"
         title="Add Card"
       >

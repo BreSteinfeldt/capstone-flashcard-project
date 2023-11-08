@@ -5,16 +5,18 @@ import { listDecks, deleteDeck } from "../../utils/api";
 function DeckList() {
   const [decks, setDecks] = useState([]);
   const history = useHistory();
-  
-  //helper function 
+
+  //helper function
   function loadDecks() {
     listDecks().then(setDecks);
   }
 
+  //useEffect loads decks 
   useEffect(() => {
     loadDecks();
   }, []);
 
+  //handles delete window.confirm & deletion 
   function deleteHandler(deckId) {
     const confirmed = window.confirm(
       "Are you sure you want to delete this Deck?"
@@ -27,9 +29,11 @@ function DeckList() {
       {decks.map((deck) => {
         return (
           <li className="list-group-item" key={deck.id}>
-            <h3>{deck.name}</h3>
-            {deck.description}
-            {deck.cards.length} cards
+            <div className="d-flex w-100 justify-content-between">
+              <h5 className="mb-1">{deck.name}</h5>
+              <small>{deck.cards.length} cards</small>
+            </div>
+            <p className="mb-1">{deck.description}</p>
             <Link to={`/decks/${deck.id}`} className="btn btn-secondary">
               <span className="oi oi-eye" /> View
             </Link>
