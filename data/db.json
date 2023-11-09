@@ -48,27 +48,6 @@
       "back": "b",
       "deckId": 1,
       "id": 7
-    },
-    {
-      "cards": [],
-      "front": "1",
-      "back": "2",
-      "deckId": 1,
-      "id": 8
-    },
-    {
-      "cards": [],
-      "front": "1",
-      "back": "2",
-      "deckId": 1,
-      "id": 9
-    },
-    {
-      "cards": [],
-      "front": "2",
-      "back": "3",
-      "deckId": 1,
-      "id": 10
     }
   ]
 }

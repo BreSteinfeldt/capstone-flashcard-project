@@ -11,18 +11,33 @@ function DeckList() {
     listDecks().then(setDecks);
   }
 
-  //useEffect loads decks 
+  //useEffect loads decks
   useEffect(() => {
     loadDecks();
   }, []);
 
-  //handles delete window.confirm & deletion 
+  //handles delete window.confirm & deletion
   function deleteHandler(deckId) {
     const confirmed = window.confirm(
       "Are you sure you want to delete this Deck?"
     );
-    confirmed && deleteDeck(deckId).then(loadDecks()).then(history.push("/"));
+    confirmed && deleteDeck(deckId).then(() => loadDecks()).then(() =>history.push("/"));
   }
+
+  // async function deleteHandler(deckId) {
+  //   try {
+  //     const confirmed = window.confirm(
+  //       "Are you sure you want to delete this Deck?"
+  //     );
+  //     if (confirmed) {
+  //       await deleteDeck(deckId);
+  //       await loadDecks();
+  //       history.push("/");
+  //     }
+  //   } catch (error) {
+  //     console.log(error.message);
+  //   }
+  // }
 
   return (
     <ul className="list-group">

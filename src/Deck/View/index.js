@@ -8,7 +8,7 @@ import {
 import CardList from "../../Card/List";
 
 function DeckView() {
-  const { deckId, cardId } = useParams();
+  const { deckId } = useParams();
   const [deck, setDeck] = useState({ cards: [] });
   const history = useHistory();
   
@@ -33,7 +33,7 @@ function DeckView() {
   }
 
   //handles deletion of card 
-  function deleteCardHandler() {
+  function deleteCardHandler(cardId) {
     const confirmed = window.confirm(
       "Delete this card? You will not be able to recover it."
     );
